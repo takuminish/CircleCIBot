@@ -8,3 +8,6 @@ gem 'sinatra'
 
 #dotenv
 gem 'dotenv'
+
+#rack-contrib
+gem 'rack-contrib'
