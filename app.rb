@@ -5,9 +5,9 @@ require 'rack/contrib'
 use Rack::PostBodyContentTypeParser
 
 get '/' do
-    'Hello'
+    p "#{params}"
 end
 
 post '/' do
-    "#{params}"
+   p "#{params}"
 end
