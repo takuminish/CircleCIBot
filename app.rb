@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'rack/contrib'
+
 
 use Rack::PostBodyContentTypeParser
 
