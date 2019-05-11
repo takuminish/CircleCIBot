@@ -13,7 +13,18 @@ get '/' do
 end
 
 post '/' do
-   puts params[:payload]
+   puts params[:status]
+   
+   uri = URI.parse(ENV["WEBHOOKURL"])
+   payload = {
+       attachments: [
+           {
+               text: params[:status]
+               color: "good"
+           }
+       ]
+   }
 
+   Net::HTTP.post_form(uri, {payload: payload.to_json})
 
 end
