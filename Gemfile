@@ -11,3 +11,11 @@ gem 'dotenv'
 
 #rack-contrib
 gem 'rack-contrib'
+
+#json
+gem 'json'
+
+#http
+gem 'http'
+
+
