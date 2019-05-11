@@ -3,6 +3,7 @@ require 'rack/contrib'
 require 'json'
 require 'http'
 require 'uri'
+require 'dotenv'
 
 
 use Rack::PostBodyContentTypeParser
