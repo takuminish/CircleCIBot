@@ -14,7 +14,7 @@ get '/' do
 end
 
 post '/' do
-   puts params[:status]
+   puts params[:payload]
    
    uri = URI.parse(ENV["WEBHOOKURL"])
 
