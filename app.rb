@@ -10,5 +10,6 @@ get '/' do
 end
 
 post '/' do
-   puts JSON.parse(params)
+   puts params["id"]
+   puts params[:id]
 end
