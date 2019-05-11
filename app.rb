@@ -10,5 +10,5 @@ get '/' do
 end
 
 post '/' do
-   puts params
+   puts params[:payload]
 end
