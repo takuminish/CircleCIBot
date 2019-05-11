@@ -10,6 +10,5 @@ get '/' do
 end
 
 post '/' do
-   puts params["id"]
-   puts params[:id]
+   puts params
 end
