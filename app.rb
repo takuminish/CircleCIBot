@@ -17,12 +17,14 @@ post '/' do
    puts params[:payload]
    
    uri = URI.parse(ENV["WEBHOOKURL"])
-
+   
+   color = "good"
+   color = "danger" if params[:payload][:outcome] === "failed"
    payload = {
        attachments: [
            {
                text: "#{params[:payload][:outcome]}",
-               color: "good"
+               color: color
            }
        ]
    }
