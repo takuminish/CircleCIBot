@@ -10,5 +10,5 @@ get '/' do
 end
 
 post '/' do
-   puts JSON.pretty_generate(params)
+   puts JSON.parse(params)
 end
