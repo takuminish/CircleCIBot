@@ -19,12 +19,16 @@ post '/' do
    uri = URI.parse(ENV["WEBHOOKURL"])
    
    color = "good"
+   pretext = "テストが成功しましたわ!!"
+
    if params[:payload][:outcome] === "failed"
     color = "danger" 
+    pretext = "テストを失敗するなんてブッブーですわ!!"
    end
    payload = {
        attachments: [
            {
+               pretext: pretext,
                text: "#{params[:payload][:outcome]}",
                color: color
            }
