@@ -1,11 +1,13 @@
 require 'sinatra'
 require 'rack/contrib'
 require 'json'
-require 'http'
+require 'net/http'
 require 'dotenv'
+require 'uri'
 
 
 use Rack::PostBodyContentTypeParser
+Dotenv.load
 
 get '/' do
     p "#{params}"
@@ -15,10 +17,11 @@ post '/' do
    puts params[:status]
    
    uri = URI.parse(ENV["WEBHOOKURL"])
+
    payload = {
        attachments: [
            {
-               text: params[:status],
+               text: "aaaa",
                color: "good"
            }
        ]
