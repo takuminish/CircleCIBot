@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'rack/contrib'
+require 'json'
 
 
 use Rack::PostBodyContentTypeParser
@@ -9,5 +10,5 @@ get '/' do
 end
 
 post '/' do
-   p "#{params}"
+   puts JSON.pretty_generate(params)
 end
