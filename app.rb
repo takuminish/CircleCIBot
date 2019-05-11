@@ -21,7 +21,7 @@ post '/' do
    payload = {
        attachments: [
            {
-               text: "#{params}",
+               text: "#{params[:outcome]}",
                color: "good"
            }
        ]
