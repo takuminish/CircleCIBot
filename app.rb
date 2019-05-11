@@ -19,7 +19,9 @@ post '/' do
    uri = URI.parse(ENV["WEBHOOKURL"])
    
    color = "good"
-   color = "danger" if params[:payload][:outcome] === "failed"
+   if params[:payload][:outcome] === "failed"
+    color = "danger" 
+   end
    payload = {
        attachments: [
            {
