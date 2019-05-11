@@ -2,7 +2,6 @@ require 'sinatra'
 require 'rack/contrib'
 require 'json'
 require 'http'
-require 'uri'
 require 'dotenv'
 
 
