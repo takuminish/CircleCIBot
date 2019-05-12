@@ -14,12 +14,12 @@ get '/' do
 end
 
 post '/' do
-   puts params[:payload]
+   puts params
 
    puts params[:payload][:outcome]
-   puts params[:payload][:commiter_name]
+   puts params[:payload][:committer_name]
    puts params[:payload][:subject]
-   puts params[:payload][:repo_name]
+   puts params[:repo_name]
    puts params[:payload][:branch]
    puts params[:payload][:build_url]
    
@@ -45,3 +45,4 @@ post '/' do
    Net::HTTP.post_form(uri, {payload: payload.to_json})
 
 end
+
