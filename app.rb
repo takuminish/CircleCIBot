@@ -43,19 +43,23 @@ post '/' do
                fields: [
                 {
                     title: "branch",
-                    text: params[:payload][:branch]
+                    value: params[:payload][:branch],
+                    short: "true"
                },
                 {
                     title: "committer_name",
-                    text: params[:payload][:committer_name]
+                    value: params[:payload][:committer_name],
+                    short: "true"
                },
                {
                     title: "commit_url",
-                    text: "<#{params[:payload][:commit_url]} | #{params[:payload][:subject]} >"
+                    value: "<#{params[:payload][:commit_url]} | #{params[:payload][:subject]} >",
+                    short: "true"
                },
                {
                     title: "build_url",
-                    text: "<#{params[:payload][:build_url]} | ##{params[:payload][:build_num]} >"
+                    value: "<#{params[:payload][:build_url]} | ##{params[:payload][:build_num]} >",
+                    short: "true"
                 }
                ],
                color: color
