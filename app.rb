@@ -15,7 +15,7 @@ get '/' do
 end
 
 post '/' do
-   puts params
+   puts params[:payload]
 
    #puts params[:payload][:outcome]
    #puts params[:payload][:committer_name]
