@@ -17,13 +17,13 @@ end
 post '/' do
    #puts params
 
-   puts params[:payload][:outcome]
-   puts params[:payload][:committer_name]
-   puts params[:payload][:subject]
-   puts params[:payload][:reponame]
-   puts params[:payload][:branch]
-   puts params[:payload][:build_url]
-   puts params[:payload][:commit_url]
+   #puts params[:payload][:outcome]
+   #puts params[:payload][:committer_name]
+   #puts params[:payload][:subject]
+   #puts params[:payload][:reponame]
+   #puts params[:payload][:branch]
+   #puts params[:payload][:build_url]
+   #puts params[:payload][:commit_url]
    
    uri = URI.parse(ENV["WEBHOOKURL"])
    
