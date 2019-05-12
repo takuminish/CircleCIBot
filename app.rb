@@ -37,26 +37,26 @@ post '/' do
    payload = {
        attachments: [
            {
-               title: "#{params[:payload][:reponame]} CircleCI結果"
+               title: "#{params[:payload][:reponame]} CircleCI結果",
                pretext: pretext,
                text: params[:payload][:outcome],
-               Fields: [
+               fields: [
                 {
                     title: "branch",
                     text: params[:payload][:branch]
                },
-                   {
-                        title: "committer_name",
-                        text: params[:payload][:committer_name]
-                   },
-                   {
-                        title: "commit_url",
-                        text: "<#{params[:payload][:commit_url]} | #{params[:payload][:subject]} >"
-                   },
-                   {
+                {
+                    title: "committer_name",
+                    text: params[:payload][:committer_name]
+               },
+               {
+                    title: "commit_url",
+                    text: "<#{params[:payload][:commit_url]} | #{params[:payload][:subject]} >"
+               },
+               {
                     title: "build_url",
                     text: "<#{params[:payload][:build_url]} | ##{params[:payload][:build_num]} >"
-               },
+                }
                ],
                color: color
            }
