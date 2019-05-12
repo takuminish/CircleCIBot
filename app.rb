@@ -15,7 +15,7 @@ get '/' do
 end
 
 post '/' do
-   #puts params
+   puts params
 
    #puts params[:payload][:outcome]
    #puts params[:payload][:committer_name]
@@ -53,7 +53,7 @@ post '/' do
                },
                {
                     title: "commit_url",
-                    value: "<#{params[:payload][:commit_url]}|#{params[:payload][:subject]}>",
+                    value: "<#{params[:payload][:commit_url]} | ##{params[:payload][:build_num]} >",
                     short: "true"
                },
                {
