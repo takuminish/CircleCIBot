@@ -20,7 +20,7 @@ post '/' do
    puts params[:payload][:outcome]
    puts params[:payload][:committer_name]
    puts params[:payload][:subject]
-   puts params[:reponame]
+   puts params[:payload][:reponame]
    puts params[:payload][:branch]
    puts params[:payload][:build_url]
    
@@ -37,7 +37,7 @@ post '/' do
        attachments: [
            {
                pretext: pretext,
-               text: "#{params[:payload][:outcome]}¥n#{params[:payload][:committer_name]}¥n#{params[:payload][:subject]}¥n#{params[:reponame]}¥n#{params[:payload][:branch]}¥n#{params[:payload][:build_url]}¥n",
+               text: "#{params[:payload][:outcome]}¥n#{params[:payload][:committer_name]}¥n#{params[:payload][:subject]}¥n#{params[:payload][:reponame]}¥n#{params[:payload][:branch]}¥n#{params[:payload][:build_url]}¥n",
                color: color
            }
        ]
