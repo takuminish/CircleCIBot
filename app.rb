@@ -11,6 +11,7 @@ Dotenv.load
 
 get '/' do
     p "#{params}"
+
 end
 
 post '/' do
@@ -19,7 +20,7 @@ post '/' do
    puts params[:payload][:outcome]
    puts params[:payload][:committer_name]
    puts params[:payload][:subject]
-   puts params[:repo_name]
+   puts params[:reponame]
    puts params[:payload][:branch]
    puts params[:payload][:build_url]
    
@@ -45,4 +46,3 @@ post '/' do
    Net::HTTP.post_form(uri, {payload: payload.to_json})
 
 end
-
