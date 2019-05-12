@@ -53,7 +53,7 @@ post '/' do
                },
                {
                     title: "commit_url",
-                    value: "<#{params[:payload][:build_url]} | ##{params[:payload][:subject]} >",
+                    value: "#{params[:payload][:commit_url]}",
                     short: "true"
                },
                {
