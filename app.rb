@@ -23,6 +23,7 @@ post '/' do
    puts params[:payload][:reponame]
    puts params[:payload][:branch]
    puts params[:payload][:build_url]
+   puts params[:payload][:commit_url]
    
    uri = URI.parse(ENV["WEBHOOKURL"])
    
@@ -36,8 +37,27 @@ post '/' do
    payload = {
        attachments: [
            {
+               title: "#{params[:payload][:reponame]} CircleCI結果"
                pretext: pretext,
-               text: "#{params[:payload][:outcome]}¥n#{params[:payload][:committer_name]}¥n#{params[:payload][:subject]}¥n#{params[:payload][:reponame]}¥n#{params[:payload][:branch]}¥n#{params[:payload][:build_url]}¥n",
+               text: params[:payload][:outcome],
+               Fields: [
+                {
+                    title: "branch",
+                    text: params[:payload][:branch]
+               },
+                   {
+                        title: "committer_name",
+                        text: params[:payload][:committer_name]
+                   },
+                   {
+                        title: "commit_url",
+                        text: "<#{params[:payload][:commit_url]} | #{params[:payload][:subject]} >"
+                   },
+                   {
+                    title: "build_url",
+                    text: "<#{params[:payload][:build_url]} | ##{params[:payload][:build_num]} >"
+               },
+               ],
                color: color
            }
        ]
