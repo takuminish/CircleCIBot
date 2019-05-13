@@ -34,7 +34,7 @@ post '/' do
     color = "danger" 
     pretext = "テストを失敗するなんてブッブーですわ!!"
     thumb_url = "./img/field.jpg"
-    
+
    end
    payload = {
        attachments: [
@@ -42,7 +42,7 @@ post '/' do
                
                title: "#{params['payload']['reponame']} CircleCI結果",
                thumb_url: thumb_url,
-               pretext: pretext,
+               pretext: "<@channel> #{pretext}"",
                text: params['payload']['outcome'],
                fields: [
                 {
