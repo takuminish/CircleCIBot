@@ -28,15 +28,20 @@ post '/' do
    
    color = "good"
    pretext = "テストが成功しましたわ!!"
+   thumb_url = "./img/success.jpg"
 
    if params['payload']['outcome'] === "failed"
     color = "danger" 
     pretext = "テストを失敗するなんてブッブーですわ!!"
+    thumb_url = "./img/field.jpg"
+    
    end
    payload = {
        attachments: [
            {
+               
                title: "#{params['payload']['reponame']} CircleCI結果",
+               thumb_url: thumb_url,
                pretext: pretext,
                text: params['payload']['outcome'],
                fields: [
