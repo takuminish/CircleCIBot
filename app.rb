@@ -15,7 +15,7 @@ get '/' do
 end
 
 post '/' do
-   puts params[:payload][:workflows]
+   puts params[:payload][:all_commit_details]
 
    #puts params[:payload][:outcome]
    #puts params[:payload][:committer_name]
