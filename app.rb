@@ -6,16 +6,17 @@ require 'dotenv'
 require 'uri'
 
 
-use Rack::PostBodyContentTypeParser
+tmp = ""
+
 Dotenv.load
 
 get '/' do
-    p "#{params}"
+    tmp
 
 end
 
 post '/' do
-   puts params[:payload]["all_commit_details"]
+   tmp = params[:payload]
 
    #puts params[:payload][:outcome]
    #puts params[:payload][:committer_name]
