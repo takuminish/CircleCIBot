@@ -42,7 +42,7 @@ post '/' do
                
                title: "#{params['payload']['reponame']} CircleCI結果",
                thumb_url: thumb_url,
-               pretext: "<@channel> #{pretext}",
+               pretext: "<!channel> #{pretext}",
                text: params['payload']['outcome'],
                fields: [
                 {
