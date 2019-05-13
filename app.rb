@@ -52,7 +52,7 @@ post '/' do
                },
                {
                     title: "commit_url",
-                   #value: "<#{params['payload']['all_commit_details']['commit_url']} | #{params['payload']['subject']} >",
+                    value: "<#{params['payload']['all_commit_details'][0]['commit_url']} | #{params['payload']['subject']} >",
                     short: "true"
                },
                {
