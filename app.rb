@@ -11,12 +11,11 @@ tmp = ""
 Dotenv.load
 
 get '/' do
-    tmp
 
 end
 
 post '/' do
-   tmp = params[:payload]
+   puts params['payload']['all_commit_details'][0]['commit_url']
 
    #puts params[:payload][:outcome]
    #puts params[:payload][:committer_name]
@@ -31,35 +30,35 @@ post '/' do
    color = "good"
    pretext = "テストが成功しましたわ!!"
 
-   if params[:payload][:outcome] === "failed"
+   if params['payload']['outcome'] === "failed"
     color = "danger" 
     pretext = "テストを失敗するなんてブッブーですわ!!"
    end
    payload = {
        attachments: [
            {
-               title: "#{params[:payload][:reponame]} CircleCI結果",
+               title: "#{params['payload']['reponame']} CircleCI結果",
                pretext: pretext,
-               text: params[:payload][:outcome],
+               text: params['payload']['outcome'],
                fields: [
                 {
                     title: "branch",
-                    value: params[:payload][:branch],
+                    value: params['payload']['branch'],
                     short: "true"
                },
                 {
                     title: "committer_name",
-                    value: params[:payload][:committer_name],
+                    value: params['payload']['committer_name'],
                     short: "true"
                },
                {
                     title: "commit_url",
-                    value: "<#{params[:payload][:all_commit_details][:commit_url]} | #{params[:payload][:subject]} >",
+                    value: "<#{params['payload']['all_commit_details']['commit_url']} | #{params['payload']['subject']} >",
                     short: "true"
                },
                {
                     title: "build_url",
-                    value: "<#{params[:payload][:build_url]} | ##{params[:payload][:build_num]} >",
+                    value: "<#{params['payload']['build_url']} | ##{params['payload']['build_num']} >",
                     short: "true"
                 }
                ],
