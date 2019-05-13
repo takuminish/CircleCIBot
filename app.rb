@@ -5,8 +5,7 @@ require 'net/http'
 require 'dotenv'
 require 'uri'
 
-
-tmp = ""
+use Rack::PostBodyContentTypeParser
 
 Dotenv.load
 
