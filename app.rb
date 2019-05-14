@@ -18,7 +18,16 @@ post '/' do
 
     puts params
 
-   uri = URI.parse(ENV["WEBHOOKURL"])
+    uri = URI.parse(ENV["WEBHOOKURL"])
+
+    payload = Payload.new(params['payload']['reponame'],
+                          params['payload']['outcome'],
+                          params['payload']['branch'],
+                          params['payload']['committer_name'],
+                          params['payload']['subject'],
+                          params['payload']['all_commit_details'][0]['commit_url'],
+                          params['payload']['build_url'],
+                          uri)
    
    
    color = "good"
