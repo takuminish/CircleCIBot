@@ -8,6 +8,12 @@ class Payload
         @commit_url = commit_url
         @build_url = build_url
         @webhook_uri = webhook_uri
+        c@olor = "good"
+        @pretext = "テストが成功しましたわ!!"
+        if @outcome === "failed"
+            @color = "danger" 
+            @pretext = "テストを失敗するなんてブッブーですわ!!"
+        end
 
     end
 
