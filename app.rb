@@ -15,8 +15,6 @@ end
 
 post '/' do
 
-    #puts params
-
     uri = URI.parse(ENV["WEBHOOKURL"])
 
     payload = Payload.new(params['payload']['reponame'],
