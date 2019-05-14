@@ -12,7 +12,9 @@ end
 post '/' do
 
     params = JSON.parse request.body.read
-    
+
+    p params
+
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
                           params['payload']['branch'],
