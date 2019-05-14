@@ -14,7 +14,6 @@ end
 
 post '/' do
 
-    uri = URI.parse(ENV["WEBHOOKURL"])
 =begin
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
