@@ -1,7 +1,7 @@
 require 'net/http'
 
 class Payload
-    def initialize(reponame, outcome, branch, commiter_name, commit_message, commit_url, build_url, build_num, webhook_uri)
+    def initialize(reponame, outcome, branch, commiter_name, commit_message, commit_url, build_url, build_num, webhook_url)
         @reponame = reponame
         @outcome = outcome
         @branch = branch
@@ -10,7 +10,7 @@ class Payload
         @commit_url = commit_url
         @build_url = build_url
         @build_num = build_num
-        @webhook_uri = webhook_uri
+        @webhook_uri = URI.parse(webhook_url)
         @color = "good"
         @pretext = "テストが成功しましたわ!!"
         if @outcome === "failed"
