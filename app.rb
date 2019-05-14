@@ -13,7 +13,7 @@ post '/' do
 
     params = JSON.parse request.body.read
 
-    p params["payload"]["reponame"]
+    p params['payload']['all_commit_details'][0]['commit_url']
 =begin
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
