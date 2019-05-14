@@ -16,7 +16,14 @@ class Payload
     end
 
     def log
-
+        puts @reponame
+        puts @outcome
+        puts @branch
+        puts @commiter_name
+        puts @commit_message
+        puts @commit_url
+        puts @build_url
+        puts @webhook_uri
     end
 
 
