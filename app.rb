@@ -23,6 +23,6 @@ post '/' do
                           params['payload']['all_commit_details'][0]['commit_url'],
                           params['payload']['build_url'],
                           params['payload']['build_num'],
-                          uri)
+                          ENV["WEBHOOKURL"])
 
 end
