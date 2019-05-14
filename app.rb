@@ -13,8 +13,8 @@ post '/' do
 
     params = JSON.parse request.body.read
 
-    p params
-
+    p params["payload"]["reponame"]
+=begin
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
                           params['payload']['branch'],
@@ -24,5 +24,5 @@ post '/' do
                           params['payload']['build_url'],
                           params['payload']['build_num'],
                           ENV["WEBHOOKURL"])
-
+=end
 end
