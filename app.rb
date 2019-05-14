@@ -16,7 +16,7 @@ end
 post '/' do
 
     uri = URI.parse(ENV["WEBHOOKURL"])
-
+=begin
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
                           params['payload']['branch'],
@@ -26,6 +26,8 @@ post '/' do
                           params['payload']['build_url'],
                           params['payload']['build_num'],
                           uri)
+=end
+    payload = Payload.new(1,2,3,4,5,6,7,8,9)
     payload.post
 
 end
