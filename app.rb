@@ -16,7 +16,7 @@ end
 
 post '/' do
 
-    puts params
+    #puts params
 
     uri = URI.parse(ENV["WEBHOOKURL"])
 
@@ -28,6 +28,7 @@ post '/' do
                           params['payload']['all_commit_details'][0]['commit_url'],
                           params['payload']['build_url'],
                           uri)
+    payload.log
    
    
    color = "good"
