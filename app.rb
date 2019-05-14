@@ -28,8 +28,6 @@ post '/' do
                           params['payload']['build_url'],
                           params['payload']['build_num'],
                           uri)
-
-    payload.log
-
+    payload.post
 
 end

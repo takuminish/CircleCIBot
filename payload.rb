@@ -54,8 +54,8 @@ class Payload
                 }
             ]
         }
-         
-        #Net::HTTP.post_form(uri, {payload: payload.to_json})
+        self.log
+        Net::HTTP.post_form(uri, {payload: payload.to_json})
     end
 
     def log
@@ -67,7 +67,6 @@ class Payload
         puts "commit_url: #{@commit_url}"
         puts "build_url: #{@build_url}"
         puts "webhook_uri: #{@webhook_uri}"
-
         puts @post_data
     end
 
