@@ -11,7 +11,7 @@ class Payload
         @build_url = build_url
         @build_num = build_num
         @webhook_uri = webhook_uri
-        @olor = "good"
+        @color = "good"
         @pretext = "テストが成功しましたわ!!"
         if @outcome === "failed"
             @color = "danger" 
@@ -21,13 +21,13 @@ class Payload
     end
 
     def post
-        post_data = {
+        @post_data = {
             attachments: [
                 {
                     
                     title: "#{@title} CircleCI結果",
                     pretext: "<!channel> #{@pretext}",
-                    text: @outcome
+                    text: @outcome,
                     fields: [
                      {
                          title: "branch",
@@ -54,8 +54,8 @@ class Payload
                 }
             ]
         }
-
-        Net::HTTP.post_form(uri, {payload: payload.to_json})
+         
+        #Net::HTTP.post_form(uri, {payload: payload.to_json})
     end
 
     def log
@@ -67,6 +67,7 @@ class Payload
         puts @commit_url
         puts @build_url
         puts @webhook_uri
+        puts @post_data
     end
 
 
