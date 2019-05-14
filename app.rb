@@ -31,18 +31,7 @@ post '/' do
 =end
     payload = Payload.new("a","b","c","d","e","f","g",uri)
     payload.log
-   
-   
-   color = "good"
-   pretext = "テストが成功しましたわ!!"
-   thumb_url = "./img/success.jpg"
 
-   if params['payload']['outcome'] === "failed"
-    color = "danger" 
-    pretext = "テストを失敗するなんてブッブーですわ!!"
-    thumb_url = "./img/field.jpg"
-
-   end
    payload = {
        attachments: [
            {
