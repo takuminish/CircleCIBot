@@ -15,20 +15,12 @@ get '/' do
 end
 
 post '/' do
-   puts params
 
-   #puts params[:payload][:outcome]
-   #puts params[:payload][:committer_name]
-   #puts params[:payload][:subject]
-   #puts params[:payload][:reponame]
-   #puts params[:payload][:branch]
-   #puts params[:payload][:build_url]
-   #puts params[:payload][:commit_url]
-   
+    puts params
+
    uri = URI.parse(ENV["WEBHOOKURL"])
    
-   payload = Payload.new
-
+   
    color = "good"
    pretext = "テストが成功しましたわ!!"
    thumb_url = "./img/success.jpg"
