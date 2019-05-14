@@ -1,4 +1,5 @@
 require 'net/http'
+require 'uri'
 
 class Payload
     def initialize(reponame, outcome, branch, commiter_name, commit_message, commit_url, build_url, build_num, webhook_url)

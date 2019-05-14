@@ -2,7 +2,6 @@ require 'sinatra'
 require 'rack/contrib'
 require 'json'
 require 'dotenv'
-require 'uri'
 require './payload.rb'
 
 use Rack::PostBodyContentTypeParser
@@ -27,7 +26,7 @@ post '/' do
                           params['payload']['build_num'],
                           uri)
 =end
-    payload = Payload.new(1,2,3,4,5,6,7,8,9)
+    payload = Payload.new(1,2,3,4,5,6,7,8,ENV["WEBHOOKURL"])
     payload.post
 
 end
