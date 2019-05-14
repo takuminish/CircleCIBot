@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Payload
     def initialize(reponame, outcome, branch, commiter_name, commit_message, commit_url, build_url, build_num, webhook_uri)
         @reponame = reponame
@@ -52,6 +54,8 @@ class Payload
                 }
             ]
         }
+
+        Net::HTTP.post_form(uri, {payload: payload.to_json})
     end
 
     def log
