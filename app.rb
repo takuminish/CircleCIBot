@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'rack/contrib'
 require 'json'
-require 'net/http'
 require 'dotenv'
 require 'uri'
 require './payload.rb'
@@ -19,7 +18,7 @@ post '/' do
     #puts params
 
     uri = URI.parse(ENV["WEBHOOKURL"])
-=begin
+
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
                           params['payload']['branch'],
@@ -29,11 +28,8 @@ post '/' do
                           params['payload']['build_url'],
                           params['payload']['build_num'],
                           uri)
-=end
-    payload = Payload.new("a","b","c","d","e","f","g",uri)
+
     payload.log
 
-   
-   Net::HTTP.post_form(uri, {payload: payload.to_json})
 
 end
