@@ -19,7 +19,7 @@ post '/' do
     #puts params
 
     uri = URI.parse(ENV["WEBHOOKURL"])
-
+=begin
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
                           params['payload']['branch'],
@@ -28,6 +28,8 @@ post '/' do
                           params['payload']['all_commit_details'][0]['commit_url'],
                           params['payload']['build_url'],
                           uri)
+=end
+    payload = Payload.new("a","b","c","d","e","f","g",uri)
     payload.log
    
    
