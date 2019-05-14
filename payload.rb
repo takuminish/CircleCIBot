@@ -1,5 +1,5 @@
 class Payload
-    def initialize(reponame, outcome, branch, commiter_name, commit_message, commit_url, build_url, webhook_uri)
+    def initialize(reponame, outcome, branch, commiter_name, commit_message, commit_url, build_url, build_num, webhook_uri)
         @reponame = reponame
         @outcome = outcome
         @branch = branch
@@ -7,8 +7,9 @@ class Payload
         @commit_message = commit_message
         @commit_url = commit_url
         @build_url = build_url
+        @build_num = build_num
         @webhook_uri = webhook_uri
-        c@olor = "good"
+        @olor = "good"
         @pretext = "テストが成功しましたわ!!"
         if @outcome === "failed"
             @color = "danger" 
@@ -18,7 +19,39 @@ class Payload
     end
 
     def post
-
+        post_data = {
+            attachments: [
+                {
+                    
+                    title: "#{@title} CircleCI結果",
+                    pretext: "<!channel> #{@pretext}",
+                    text: @outcome
+                    fields: [
+                     {
+                         title: "branch",
+                         value: @branch,
+                         short: "true"
+                    },
+                     {
+                         title: "committer_name",
+                         value: @commiter_name,
+                         short: "true"
+                    },
+                    {
+                         title: "commit_url",
+                         value: "<#{@commit_url} | #{@commit_message} >",
+                         short: "true"
+                    },
+                    {
+                         title: "build_url",
+                         value: "<#{@build_url} | ##{@build_num} >",
+                         short: "true"
+                     }
+                    ],
+                    color: @color
+                }
+            ]
+        }
     end
 
     def log
