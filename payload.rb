@@ -59,14 +59,15 @@ class Payload
     end
 
     def log
-        puts @reponame
-        puts @outcome
-        puts @branch
-        puts @commiter_name
-        puts @commit_message
-        puts @commit_url
-        puts @build_url
-        puts @webhook_uri
+        puts "reponame: #{@reponame}"
+        puts "outcome: #{@outcome}"
+        puts "branch: #{@branch}"
+        puts "commiter_name: #{@commiter_name}"
+        puts "commit_message: #{@commit_message}"
+        puts "commit_url: #{@commit_url}"
+        puts "build_url: #{@build_url}"
+        puts "webhook_uri: #{@webhook_uri}"
+
         puts @post_data
     end
 
