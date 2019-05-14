@@ -56,7 +56,7 @@ class Payload
             ]
         }
         self.log
-        Net::HTTP.post_form(uri, {payload: payload.to_json})
+        Net::HTTP.post_form(@webhook_uri, {payload: @post_data.to_json})
     end
 
     def log
