@@ -4,6 +4,7 @@ require 'json'
 require 'net/http'
 require 'dotenv'
 require 'uri'
+require './payload.rb'
 
 use Rack::PostBodyContentTypeParser
 
@@ -26,6 +27,8 @@ post '/' do
    
    uri = URI.parse(ENV["WEBHOOKURL"])
    
+   payload = Payload.new
+
    color = "good"
    pretext = "テストが成功しましたわ!!"
    thumb_url = "./img/success.jpg"
