@@ -1,10 +1,7 @@
 require 'sinatra'
-require 'rack/contrib'
 require 'json'
 require 'dotenv'
 require './payload.rb'
-
-use Rack::PostBodyContentTypeParser
 
 Dotenv.load
 
@@ -13,6 +10,7 @@ get '/' do
 end
 
 post '/' do
+
 
     payload = Payload.new(params['payload']['reponame'],
                           params['payload']['outcome'],
@@ -23,7 +21,5 @@ post '/' do
                           params['payload']['build_url'],
                           params['payload']['build_num'],
                           uri)
-
-    payload.post
 
 end
